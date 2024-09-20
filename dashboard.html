@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Layout</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #2E7D32;
+            padding: 10px 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            z-index: 1000;
+        }
+        .header .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .sidebar {
+            position: fixed;
+            top: 60px; /* Adjusted to be below header */
+            left: 0;
+            width: 250px;
+            height: calc(100% - 60px);
+            background-color: #343a40;
+            color: white;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: block;
+        }
+
+        .sidebar a:hover {
+            background-color: #495057;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 80px 20px 20px;
+            background-color: #f8f9fa;
+            height: 100vh;
+        }
+        .chart-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .profile-dropdown {
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+        }
+        .profile-dropdown img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .dropdown-toggle {
+            background-color: #fff;
+            color: #2E7D32;
+        }
+        .search-container {
+        display: flex;
+         align-items: center;
+          margin-left: auto;
+        }
+        .search-container input {
+         padding: 8px;
+         border-radius: 5px;
+         border: none;
+         width: 250px; /* Adjust the width as needed */
+        }
+        .search-container button {
+        margin-left: 5px;
+        padding: 8px;
+        border: none;
+        background-color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        }
+        .main-content {
+            margin-left: 250px; 
+            padding: 20px;
+            background-color: #f8f9fa;
+            min-height: calc(100vh - 60px); /* Adjust for top navbar height */
+            transition: margin-left 0.3s; /* Include margin-left in transition */
+        }
+
+        .sidebar.hidden + .main-content {
+            margin-left: 0; /* Adjust margin when sidebar is hidden */
+        }
+
+        /* Dark Mode Main Content */
+        body.dark-mode .main-content {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        .main-content h2 {
+            margin-top: 20px;
+            font-size: 32px;
+        }
+
+        .main-content h2 span {
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Korea’s Best</div>
+        <div class="search-container">
+            <input type="text" placeholder="Search">
+            <button type="submit">
+                <img src="img/search.png" alt="Search" height="25px" width="25px">
+            </button>
+        </div>
+        <div class="profile-dropdown">
+            <div class="btn-group">
+                <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#" target="_self">Settings</a></li>
+                    <li><a class="dropdown-item" href="#" target="_self">Activity</a></li>
+                    <li><a class="dropdown-item" href="index.html" target="_self">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </header>
+    <div class="sidebar">
+        <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="#"><i class="fas fa-columns"></i> Layouts</a>
+        <a href="#"><i class="fas fa-file-alt"></i> Pages</a>
+        <a href="#"><i class="fas fa-chart-line"></i> Charts</a>
+        <a href="#"><i class="fas fa-table"></i> Tables</a>
+    </div>
+    <br> 
+    <br>
+    <div class="main-content" id="content">
+        <div class="container-fluid">
+            <h2> Welcome Jamella Rubio </h2>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="card text-white bg-danger mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title"> First Card</h5>
+                            <a href="#" class="btn btn-light">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card text-white bg-success mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Second Card</h5>
+                            <a href="#" class="btn btn-light">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card text-white bg-warning mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Third Card</h5>
+                            <a href="#" class="btn btn-light">View Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Fourth Card</h5>
+                            <a href="#" class="btn btn-light">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="chart-container">
+            <h5><i class="fas fa-chart-area"></i> Area Chart Diagram</h5>
+            <canvas id="Chart" width="100%" height="45"></canvas>
+            <br>
+        <div class="text-success">
+            <p>Updated yesterday at 11:59 PM</p>
+        </div>
+        <br><br>
+        <div class="text-dark">
+        <p class="text-left text-body-secondary">© 2024 Korea’s Best, Philippines</p>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        var ctx = document.getElementById('Chart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jamuary', ' February', 'Mar ', 'April ', 'May ', 'June', 'July'],
+                datasets: [{
+                    label: 'Users ratings',
+                    data: [5000, 9000, 12000, 15000, 25000, 20000, 40000],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                    fill: true,
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        ticks: {
+                            color: '#212529'
+                        },
+                        grid: {
+                            color: '#dee2e6'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            color: '#212529'
+                        },
+                        grid: {
+                            color: '#dee2e6'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
